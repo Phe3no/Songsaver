@@ -1,13 +1,185 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 22px;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #050505;
+  font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+header {
+  width: 100%;
+  padding: 0.5em 0.25em;
+
+  color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  width: 90%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: space-between;
+  overflow-y: auto;
+}
+
+main .song-form {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin: 0.5rem 0 0;
+  padding: 0 0.5rem 0.25rem;
+}
+
+main .song-form label {
+  position: absolute;
+  left: -9999px;
+}
+
+main .song-form input[type="text"] {
+  flex-grow: 2;
+  max-width: 44%;
+  min-height: 48px;
+  font-size: 16px;
+  padding: 0.25rem;
+  border: 2px solid #999;
+  transition: 0.5s;
+  border-radius: 0.25rem;
+  margin-right: 0.25rem;
+  outline: none;
+}
+
+main .song-form input[type="text"]:focus {
+  border: 2px solid #af2121;
+}
+
+main .song-form select {
+  flex-grow: 1;
+  font-size: 16px;
+  border: 2px solid #999;
+  transition: 0.5s;
+  border-radius: 0.25rem;
+  margin-right: 0.25rem;
+  outline: none;
+}
+
+main .song-form select:focus {
+  border: 2px solid #af2121;
+}
+
+main .song-form #addRating {
+  text-align: center;
+}
+
+main .song-form button {
+  height: 48px;
+  min-width: 48px;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: #f0f0f0;
+  color: #999;
+  cursor: pointer;
+}
+
+main .song-form button:hover {
+  background-color: f0f0f0;
+  color: #af2121;
+  outline: none;
+}
+
+main table {
+  position: relative;
+  border-collapse: collapse;
+  font-size: 16px;
+  table-layout: auto;
+  width: 100%;
+}
+
+main table .song-header {
+  background-color: #444;
+  color: #f0f0f0;
+  border-bottom: 1px solid #af2121;
+}
+
+main table thead th {
+  text-align: left;
+  padding: 0.4em;
+  vertical-align: bottom;
+}
+
+main table thead th:nth-child(-n + 2) button {
+  float: right;
+  cursor: pointer;
+}
+
+main table thead th:nth-child(n + 4) {
+  text-align: center;
+}
+
+main table tbody {
+  position: relative;
+  top: 0.5em;
+}
+
+main table tbody tr:nth-child(odd) {
+  background-color: #c0c0c0;
+}
+
+main table tbody tr:nth-child(even) {
+  background-color: #f0f0f0;
+}
+
+main table tbody tr td {
+  text-align: left;
+  padding: 0.4em 0.4em 0;
+}
+
+main table tbody tr td:nth-child(n + 4) {
+  text-align: center;
+}
+
+main table tbody tr td svg {
+  color: #444;
+  cursor: pointer;
+}
+
+main table tbody tr td svg:hover {
+  color: #af2121;
+}
+
+footer {
+  width: 100%;
+  padding: 0.25em;
+  background-color: #050505;
+  color: #f0f0f0;
+  display: grid;
+  place-content: center;
 }
