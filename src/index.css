@@ -27,31 +27,74 @@ code {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
-  min-height: 100vh;
-  margin: 0 auto;
-  overflow-y: auto;
 }
 
-.App header {
+header {
   width: 100%;
   padding: 0.5em 0.25em;
-
   color: #f0f0f0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.middle {
+nav {
+  background-color: #444;
+  border-bottom: 1px solid #af2121;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  margin-left: 6em;
+  list-style-type: none;
+}
+
+nav ul li {
+  padding: 0.5em;
+}
+
+nav ul li .nav-link {
+  background-color: #f0f0f0;
+  color: #444;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 0.3em 1.2em;
+  border-radius: 0.3em;
+}
+
+nav ul li .nav-link:hover {
+  background-color: #af2121;
+  color: #f0f0f0;
+}
+
+.message {
   color: lime;
   padding-top: 1em;
   text-align: center;
 }
 
-.middle p {
+.home p {
   padding: 1em;
   font-size: 0.6em;
+}
+
+.about-me p {
+  padding: 1em;
+  font-size: 0.6em;
+}
+
+.about-me li {
+  color: #f0f0f0;
+  font-size: 0.8em;
+  padding: 0.5em 6em;
+}
+
+main {
+  width: 90%;
+  height: 100vh;
+  margin: 0 auto;
+  overflow-y: auto;
 }
 
 main .song-form {

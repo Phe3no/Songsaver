@@ -1,31 +1,37 @@
-import Header from "./Header.js";
-import Middle from "./Middle.js";
-import Content from "./components/contents/Content.js";
-import Footer from "./Footer.js";
+import { Link, Route, Routes } from "react-router-dom";
 
-import SongOverview from "./features/songs/SongOverview";
-import SongForm from "./features/songs/SongForm.js";
+import Header from "./Header.js";
+import Home from "./pages/Home";
+import Aboutme from "./pages/Aboutme.js";
+import Footer from "./Footer.js";
 
 function App() {
   return (
-    <main className="App">
+    <>
       <Header title="Songsaver" />
 
-      <Middle
-        title="Songsaver using React useState"
-        paragraph="files located in './components/....'"
-      />
-      <Content />
+      <nav>
+        <ul>
+          <li>
+            <Link className="nav-link" to="/">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link className="nav-link" to="/aboutme">
+              About me
+            </Link>
+          </li>
+        </ul>
+      </nav>
 
-      <Middle
-        title="Songsaver using @reduxjs/toolkit"
-        paragraph="files located in './features/....'"
-      />
-      <SongForm />
-      <SongOverview />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/aboutme" element={<Aboutme />} />
+      </Routes>
 
       <Footer />
-    </main>
+    </>
   );
 }
 
