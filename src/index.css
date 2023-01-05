@@ -25,12 +25,15 @@ code {
 .App {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  height: 100vh;
+  width: 90%;
+  min-height: 100vh;
   margin: 0 auto;
+  overflow-y: auto;
 }
 
-header {
+.App header {
   width: 100%;
   padding: 0.5em 0.25em;
 
@@ -40,14 +43,15 @@ header {
   align-items: center;
 }
 
-main {
-  width: 90%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: space-between;
-  overflow-y: auto;
+.middle {
+  color: lime;
+  padding-top: 1em;
+  text-align: center;
+}
+
+.middle p {
+  padding: 1em;
+  font-size: 0.6em;
 }
 
 main .song-form {
@@ -129,18 +133,18 @@ main table .song-header {
   border-bottom: 1px solid #af2121;
 }
 
-main table thead th {
+main table thead tr th {
   text-align: left;
   padding: 0.4em;
   vertical-align: bottom;
 }
 
-main table thead th:nth-child(-n + 2) button {
+main table thead tr th:nth-child(-n + 2) button {
   float: right;
   cursor: pointer;
 }
 
-main table thead th:nth-child(n + 4) {
+main table thead tr th:nth-child(n + 4) {
   text-align: center;
 }
 
@@ -177,7 +181,7 @@ main table tbody tr td svg:hover {
 
 footer {
   width: 100%;
-  padding: 0.25em;
+  padding: 1.5em 0 0.5em;
   background-color: #050505;
   color: #f0f0f0;
   display: grid;
