@@ -1,7 +1,7 @@
 import React from "react";
 import SongFormOption from "./SongFormOption";
 import { FaPlus } from "react-icons/fa";
-import { genre, rating } from "../../constants/data.js";
+import { genres, ratings } from "../../constants/data.js";
 
 const SongForm = ({ newSong, formIsValid, handleChange, handleSubmit }) => {
   return (
@@ -27,14 +27,14 @@ const SongForm = ({ newSong, formIsValid, handleChange, handleSubmit }) => {
       <SongFormOption
         id="addGenre"
         name="genre"
-        data={genre}
+        data={genres}
         value={newSong.genre}
         handleChange={handleChange}
       />
       <SongFormOption
         id="addRating"
         name="rating"
-        data={rating}
+        data={ratings}
         value={newSong.rating}
         handleChange={handleChange}
       />

@@ -2,7 +2,6 @@ import React from "react";
 import { FaTrashAlt } from "react-icons/fa";
 
 const SongList = ({ songs, handleDelete }) => {
-  console.log("kom ik 2 keer?");
   return (
     <tbody>
       {songs.map((song) => (

@@ -10,7 +10,6 @@ const SongFormOption = ({ data, handleChange, id, name, value }) => {
     >
       <option hidden>Add {name}</option>
       {data.map((item, index) => {
-        console.log(item);
         return (
           <option key={index} value={item}>
             {item}

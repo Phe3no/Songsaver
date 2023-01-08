@@ -79,6 +79,10 @@ nav ul li .nav-link:hover {
   font-size: 0.6em;
 }
 
+.about-me {
+  list-style-type: none;
+}
+
 .about-me p {
   padding: 1em;
   font-size: 0.6em;
@@ -92,9 +96,9 @@ nav ul li .nav-link:hover {
 
 main {
   width: 90%;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0 auto;
-  overflow-y: auto;
+  /*overflow-y: auto;*/
 }
 
 main .song-form {
@@ -160,6 +164,44 @@ main .song-form button:hover {
   background-color: f0f0f0;
   color: #af2121;
   outline: none;
+}
+
+main .filter-songs {
+  background-color: #444;
+  border-bottom: 1px solid #af2121;
+  margin: 0.4em 0;
+  line-height: 2em;
+  text-align: center;
+}
+
+main .filter-songs span {
+  padding-right: 2em;
+  color: #f0f0f0;
+}
+
+main .filter-songs select {
+  margin-right: 2em;
+  border: 2px solid #999;
+  transition: 0.5s;
+  border-radius: 0.25rem;
+  padding: 0.4em 2em;
+}
+
+main .filter-songs select option {
+  margin-top: 5em;
+  text-indent: 0.4em;
+}
+
+main .filter-songs button {
+  border: 2px solid #999;
+  transition: 0.5s;
+  border-radius: 0.25rem;
+  padding: 0.4em 2em;
+}
+
+main .filter-songs select:focus,
+main .filter-songs button:focus {
+  border: 2px solid #af2121;
 }
 
 main table {

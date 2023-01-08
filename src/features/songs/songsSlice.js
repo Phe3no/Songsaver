@@ -1,7 +1,7 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 import { chansons } from "../../constants/data.js";
 
-const initialState = chansons; //;-)
+const initialState = chansons;
 
 export const songsSlice = createSlice({
   name: "songs",
@@ -9,7 +9,7 @@ export const songsSlice = createSlice({
   reducers: {
     songAdded: {
       reducer(state, action) {
-        state.push(action.payload);
+        state.songs.push(action.payload);
       },
       prepare(title, artist, genre, rating) {
         return {
@@ -24,18 +24,53 @@ export const songsSlice = createSlice({
       },
     },
     songDeleted(state, action) {
-      const newState = [...state.filter((song) => song.id !== action.payload)];
-      state.splice(0, state.length);
-      state = newState.map((elem) => state.push(elem));
+      const newSongs = [
+        ...state.songs.filter((song) => song.id !== action.payload),
+      ];
+      state.songs = newSongs;
     },
-    songsSorted(state, action) {
-      state.splice(0, state.length);
-      state = action.payload.map((elem) => state.push(elem));
+    songsSortedByTitle(state) {
+      const sortedByTitle = [...state.songs];
+      sortedByTitle.sort((a, b) => {
+        let titleA = a.title.toLowerCase();
+        let titleB = b.title.toLowerCase();
+        if (state.titleUp) {
+          return titleA < titleB ? -1 : titleA > titleB ? 1 : 0;
+        } else {
+          return titleA < titleB ? 1 : titleA > titleB ? -1 : 0;
+        }
+      });
+      console.log("sortedByTitle");
+      state.titleUp = !state.titleUp;
+      state.songs = sortedByTitle;
+    },
+    songsSortedByArtist(state) {
+      const sortedByArtist = [...state.songs];
+      sortedByArtist.sort((a, b) => {
+        let artistA = a.artist.toLowerCase();
+        let artistB = b.artist.toLowerCase();
+        if (state.artistUp) {
+          return artistA < artistB ? -1 : artistA > artistB ? 1 : 0;
+        } else {
+          return artistA < artistB ? 1 : artistA > artistB ? -1 : 0;
+        }
+      });
+      state.artistUp = !state.artistUp;
+      state.songs = sortedByArtist;
+    },
+    setFilter: (state, action) => {
+      state.filter = action.payload;
     },
   },
 });
 
-export const { songAdded, songDeleted, songsSorted } = songsSlice.actions;
+export const {
+  songAdded,
+  songDeleted,
+  songsSortedByTitle,
+  songsSortedByArtist,
+  setFilter,
+} = songsSlice.actions;
 
 export const selectAllSongs = (state) => state.songs;
 

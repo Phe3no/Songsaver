@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import SongOverview from "./SongOverview";
 import SongForm from "./SongForm";
-import { chansons, genre, rating } from "../../constants/data.js";
+import { chansons } from "../../constants/data.js";
 
 const Content = () => {
   const [titleUp, setTitleUp] = useState(false);
   const [artistUp, setArtistUp] = useState(false);
-  const [songs, setSongs] = useState(chansons);
+  const [songs, setSongs] = useState(chansons.songs);
 
   const [newSong, setNewSong] = useState({
     title: "",
@@ -19,10 +19,13 @@ const Content = () => {
   const [formIsValid, setFormIsValid] = useState(false);
 
   const addNewSong = (newSong) => {
+    //calculating unique id, by copying state songs then sort them ascending by id,
+    //pick the last id, which should be the highest number, and add 1 tot it
     const sortedSongs = [...songs];
     sortedSongs.sort((a, b) => a.id - b.id);
-    setSongs(sortedSongs);
-    const id = songs.length ? songs[songs.length - 1].id + 1 : 1;
+    const id = sortedSongs.length
+      ? sortedSongs[sortedSongs.length - 1].id + 1
+      : 1;
     const theNewSong = {
       id,
       title: newSong.title,
@@ -30,6 +33,7 @@ const Content = () => {
       genre: newSong.genre,
       rating: newSong.rating,
     };
+    //add the new song to a copy of state songs, then setState
     const listSongs = [...songs, theNewSong];
     setSongs(listSongs);
   };
@@ -73,7 +77,6 @@ const Content = () => {
   };
 
   const handleSubmit = (event) => {
-    //event.preventDefault();
     if (!newSong) return;
     setNewSong({
       title: "",

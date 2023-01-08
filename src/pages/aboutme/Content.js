@@ -21,8 +21,12 @@ const Content = () => {
       <li>React @reduxjs/toolkit</li>
       <li>... useSelector</li>
       <li>
-        ... useDispatch, inwhich you can mutate state, because it uses Immer
+        ... useDispatch, inwhich you can "mutate" state, because it uses Immer
         (middleware, "plugin") which takes care of copying under the hood...
+      </li>
+      <li>
+        React Router, how it updates the DOM super fast, with only that what is
+        necessary.
       </li>
       <li>... and many, many more!</li>
     </ul>

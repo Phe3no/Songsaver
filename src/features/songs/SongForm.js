@@ -49,15 +49,15 @@ const SongForm = () => {
       />
       <select id="addGenre" name="genre" value={genre} onChange={onGenreChange}>
         <option hidden>Add genre</option>
-        <option value="blues">Blues</option>
-        <option value="country">Country</option>
-        <option value="disco">Disco</option>
-        <option value="funk">Funk</option>
-        <option value="jazz">Jazz</option>
-        <option value="pop">Pop</option>
-        <option value="reggae">Reggae</option>
-        <option value="rock">Rock</option>
-        <option value="soul">Soul</option>
+        <option value="Blues">Blues</option>
+        <option value="Country">Country</option>
+        <option value="Disco">Disco</option>
+        <option value="Funk">Funk</option>
+        <option value="Jazz">Jazz</option>
+        <option value="Pop">Pop</option>
+        <option value="Reggae">Reggae</option>
+        <option value="Rock">Rock</option>
+        <option value="Soul">Soul</option>
       </select>
       <select
         id="addRating"
